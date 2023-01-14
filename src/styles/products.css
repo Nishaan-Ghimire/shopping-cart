@@ -1,0 +1,71 @@
+.products{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.products h1.heading{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(29, 27, 27);
+}
+
+.products .items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;   
+    align-items: center;
+    row-gap: 18px;
+    
+}   
+.products .items .item{
+/* border: 1px solid grey; */
+flex-basis: 400px;
+background-color: white;
+
+}
+.products .items .item img{
+    height: 150px;
+    width: 150px;
+}
+.products .items .item .itemTitle{
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  max-width: 200px;
+  word-break: break-all;
+  background-color: white;
+}
+
+
+
+
+.products .items .item .price{
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(7, 7, 7);
+    margin-top: 5px;
+    float: left;
+    clear: left;
+    background-color: white;
+
+}
+.products .items .item button{
+    padding: 8px;
+    margin: 5px 0px;
+    border:1px solid rgb(57, 196, 57);
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: black;
+    
+}
+
+.products .items .item button:hover{
+
+    border: none;
+    background-color: rgb(57, 196, 57);
+    color: white;
+}

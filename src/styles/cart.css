@@ -1,0 +1,41 @@
+
+
+.mycart .heading h3{
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(92, 90, 90);
+}
+.mycart .cartTable{
+  
+    align-items: center;
+    justify-content: center;
+}
+/* .mycart .cartTable .item{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  
+} */
+.mycart .cartTable .item img{
+    width: 75px;
+    height: 75px;
+
+}
+table tr td{
+    padding: 20px;
+}
+
+button{
+    padding: 8px;
+    font: 18px;
+    font-weight: bold;
+    color: black;
+    border: 1px solid green;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+button:hover{
+border: none;
+background-color: rgb(94, 221, 94); 
+}
