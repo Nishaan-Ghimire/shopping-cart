@@ -9,6 +9,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 const cartItems = useSelector((state)=>state.cart)
 let i = 0;
+let j = 0;
 let totalprice = 0;
 const handleRemove = (productId)=>{
 dispatch(remove(productId));
@@ -27,16 +28,20 @@ dispatch(remove(productId));
           {
             (cartItems.length===0)?'Cart is empty':
           cartItems.length && cartItems.map(cartItem=>(
-           <div className="item">
+           <div className="item" key={cartItem.id+(++j)+i}>
             <table>
-              <tr>
-               <input type="hidden" value={totalprice+= cartItem.price} />
+              <thead></thead>
+              <tbody>              
+                <tr>
+               <td style={{display: 'none'}}><input type="hidden" value={totalprice+= cartItem.price} /></td>
               <td><span>{++i}</span></td>
               <td><img src={cartItem.image} alt="" /></td>
               <td><h4>{cartItem.title}</h4></td>
               <td><div className="price" style={{fontWeight: 'bold'}}>${cartItem.price}</div></td>
               <td><button onClick={()=>{handleRemove(cartItem.id)}}>Remove</button></td>
             </tr>
+            </tbody>
+
            </table>
            
            

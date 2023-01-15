@@ -1,27 +1,39 @@
 import React,{useEffect,useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { add } from '../store/cartSlice';
+import { fetchProducts } from '../store/productSlice';
+import {STATUSES} from '../store/productSlice'
 import '../styles/products.css';
+
 
 const Products = () => {
 
   const dispatch = useDispatch();
-
-  const [products,setProducts] = useState([]);
+  const{data:products,status} = useSelector((state)=>state.product)
+  // const [products,setProducts] = useState([]);
   useEffect(() => {
-    const fetchData = async() =>{
+    dispatch(fetchProducts());
+    // const fetchData = async() =>{
 
-     const res =  await fetch('https://fakestoreapi.com/products?limit=20');
-     const data = await res.json(); 
-    setProducts(data);
-    };
-    fetchData();
+    //  const res =  await fetch('https://fakestoreapi.com/products?limit=20');
+    //  const data = await res.json(); 
+    // setProducts(data);
+    // };
+    // fetchData();
 },[]); 
 
 const handleClick = (product)=>{
   dispatch(add(product));
 }
 
+if(status === STATUSES.LOADING)
+{
+  return <h2 style={{textAlign: 'center'}}>Loading...</h2>
+}
+if(status === STATUSES.ERROR)
+{
+  return <h2 style={{textAlign: 'center'}}>Something went wrong</h2>
+}
   return (
     <div className='products'>
  
